@@ -7,10 +7,10 @@
 cluster_race_id(sce)
 }
 \arguments{
-\item{sce}{the SingleCellExperiment object to perform clustering on}
+\item{sce}{the SingleCellExperiment object}
 }
 \value{
-vector of cluster identities
+SingleCellExperiment object
 }
 \description{
 Clustering using RaceID

@@ -1,14 +1,10 @@
 #' Clustering using RaceID
-#' @param x the SingleCellExperiment or count matrix object to perform clustering on
+#' @param sce the SingleCellExperiment object
 #'
-#' @return vector of cluster identities
+#' @return SingleCellExperiment object
 #' @export
-cluster_race_id <- function(x) {
-    if (is(x, "SingleCellExperiment")) {
-        counts <- SingleCellExperiment::counts(x)
-    } else {
-        counts <- x
-    }
+cluster_race_id <- function(sce) {
+    counts <- SingleCellExperiment::counts(sce)
 
     sc <- RaceID::SCseq(counts)
     sc <- RaceID::filterdata(sc, mintotal = 1)
@@ -17,5 +13,7 @@ cluster_race_id <- function(x) {
     sc <- RaceID::findoutliers(sc)
     res <- factor(sc@cpart)
 
-    return(res)
+    colData(sce)$cluster_id <- res
+
+    return(sce)
 }

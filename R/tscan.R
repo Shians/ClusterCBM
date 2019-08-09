@@ -1,16 +1,13 @@
 #' Clustering using TSCAN
-#' @param sce the SingleCellExperiment object to perform clustering on
-#'
-#' @return vector of cluster identities
+#' @inheritParams cluster_race_id
 #' @export
-cluster_tscan <- function(x) {
-    if (is(x, "SingleCellExperiment")) {
-        counts <- SingleCellExperiment::counts(x)
-    } else {
-        counts <- x
-    }
+cluster_tscan <- function(sce) {
+    expr <- logcounts(sce)
 
-    res <- TSCAN::exprmclust(counts)
+    res <- TSCAN::exprmclust(expr)
     res <- res$clusterid
-    return(factor(res))
+
+    colData(sce)$cluster_id <- factor(res)
+
+    return(sce)
 }

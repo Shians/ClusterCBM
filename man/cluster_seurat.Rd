@@ -4,10 +4,7 @@
 \alias{cluster_seurat}
 \title{Clustering using Seurat}
 \usage{
-cluster_seurat(sce)
-}
-\arguments{
-\item{sce}{the SingleCellExperiment object to perform clustering on}
+cluster_seurat(x)
 }
 \description{
 Clustering using Seurat

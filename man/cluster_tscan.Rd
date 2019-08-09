@@ -7,10 +7,7 @@
 cluster_tscan(sce)
 }
 \arguments{
-\item{sce}{the SingleCellExperiment object to perform clustering on}
-}
-\value{
-vector of cluster identities
+\item{sce}{the SingleCellExperiment object}
 }
 \description{
 Clustering using TSCAN

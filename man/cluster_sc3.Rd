@@ -7,7 +7,7 @@
 cluster_sc3(sce, col.sym = "Symbol")
 }
 \arguments{
-\item{sce}{the SingleCellExperiment object to perform clustering on}
+\item{sce}{the SingleCellExperiment object}
 
 \item{col.sym}{the column name containing gene symbols}
 }
