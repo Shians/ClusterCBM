@@ -13,7 +13,8 @@ Imports:
     RaceID,
     scater,
     SC3,
-    Seurat
+    Seurat,
+    TSCAN
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
