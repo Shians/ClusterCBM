@@ -4,36 +4,21 @@
 cluster_seurat <- function(x) {
     counts <- SingleCellExperiment::counts(x)
 
-    pbmc <- Seurat::CreateSeuratObject(
-        counts = counts,
-        min.cells = 3,
-        min.features = 0,
-    )
+    sc_data <- Seurat::CreateSeuratObject(counts = counts)
+    sc_data <- Seurat::NormalizeData(object = sc_data)
+    sc_data@assays$RNA@data <- logcounts(x)
+    sc_data <- Seurat::ScaleData(object = sc_data)
 
-    pbmc <- Seurat::NormalizeData(object = pbmc, display.progress = FALSE)
-    pbmc <- Seurat::FindVariableFeatures(
-        object = pbmc,
-        x.low.cutoff = 0.0125,
-        x.high.cutoff = 3,
-        y.cutoff = 0.5,
-        display.progress = FALSE
-    )
-
-    pbmc <- Seurat::ScaleData(
-        object = pbmc
-    )
-
-    pbmc <- Seurat::RunPCA(
-        object = pbmc,
-        pcs.compute = num_dim,
-        pc.genes = pbmc@var.genes,
+    sc_data <- Seurat::FindVariableFeatures(object = sc_data)
+    sc_data <- Seurat::RunPCA(
+        object = sc_data,
         do.print = FALSE
     )
 
-    pbmc <- Seurat::FindNeighbors(pbmc)
-    pbmc <- Seurat::FindClusters(pbmc, resolution = 0.5)
+    sc_data <- Seurat::FindNeighbors(sc_data)
+    sc_data <- Seurat::FindClusters(sc_data)
 
-    res <- pbmc@meta.data$seurat_clusters
+    res <- sc_data@meta.data$seurat_clusters
     res <- factor(res)
 
     colData(x)$cluster_id <- res
