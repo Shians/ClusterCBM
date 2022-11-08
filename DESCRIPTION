@@ -1,7 +1,7 @@
 Package: ClusterCBM
 Type: Package
 Title: Imputation Method Wrappers for CellBench
-Version: 0.1.0
+Version: 0.1.1
 Author@R: person("Shian", "Su", email = "su.s@wehi.edu.au", role = c("cre", "aut"))
 Maintainer: Shian Su <su.s@wehi.edu.au>
 Description: Provide wrappers for various single cell clustering methods for use with CellBench
@@ -11,7 +11,7 @@ Depends:
     CellBench
 Imports:
     RaceID,
-    scater,
+    scater (>= 1.14.0),
     SC3,
     Seurat (>= 3.0.0),
     TSCAN,
