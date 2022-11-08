@@ -4,7 +4,7 @@ pre_clean <- function(sce) {
     ave.counts <- rowMeans(counts(sce))
     keep <- ave.counts >= 1
     sce_cleaned <- sce[keep,]
-    sce_cleaned <- scater::calculateQCMetrics(sce_cleaned)
+    sce_cleaned <- scater::perCellQCMetrics(sce_cleaned)
     sce_cleaned <- scater::normalize(sce_cleaned)
     return(sce_cleaned)
 }
