@@ -2,8 +2,10 @@
 
 export(all_cluster_methods)
 export(cluster_metric_ari)
+export(cluster_metric_nmi)
 export(cluster_race_id)
 export(cluster_seurat)
+export(cluster_sharp)
 export(cluster_tscan)
 importFrom(SingleCellExperiment,"sizeFactors<-")
 importFrom(SingleCellExperiment,counts)

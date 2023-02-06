@@ -8,7 +8,7 @@ cluster_metric <- function(sce, cluster_col, truth_col, method) {
 #'
 #' To use this function in a CellBench workflow, it should be wrapped inside an
 #' anonymous function. For example \code{function(x) { cluster_metric_ari(x,
-#' ""cluster_id", "cell_type") }}
+#' "cluster_id", "cell_type") }}
 #'
 #' @param sce the SingleCellExperiment object
 #' @param cluster_col the column name in colData(sce) containing the predicted
@@ -26,7 +26,7 @@ cluster_metric_ari <- function(sce, cluster_col, truth_col) {
 #'
 #' To use this function in a CellBench workflow, it should be wrapped inside an
 #' anonymous function. For example \code{function(x) { cluster_metric_nmi(x,
-#' ""cluster_id", "cell_type") }}
+#' "cluster_id", "cell_type") }}
 #'
 #' @param sce the SingleCellExperiment object
 #' @param cluster_col the column name in colData(sce) containing the predicted
