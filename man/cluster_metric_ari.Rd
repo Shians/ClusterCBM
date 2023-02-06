@@ -9,13 +9,17 @@ cluster_metric_ari(sce, cluster_col, truth_col)
 \arguments{
 \item{sce}{the SingleCellExperiment object}
 
-\item{cluster_col}{the column name in colData(sce) containing the predicted clusters}
+\item{cluster_col}{the column name in colData(sce) containing the predicted
+clusters}
 
 \item{truth_col}{the column name in colData(sce) containing the true clusters}
 }
 \value{
-Adjusted Rand index metric for comparing true cluster values and predicted cluster values.
+Adjusted Rand index metric for comparing true cluster values and
+  predicted cluster values.
 }
 \description{
-Adjusted rand index
+To use this function in a CellBench workflow, it should be wrapped inside an
+anoymous function. For example \code{function(x) { cluster_metric_ari(x,
+""cluster_id", "cell_type") }}
 }
