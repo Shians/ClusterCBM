@@ -13,10 +13,9 @@ Imports:
     RaceID,
     scater (>= 1.14.0),
     Seurat (>= 3.0.0),
-    SIMLR,
     TSCAN,
     SHARP,
-    mclust
+    igraph
 Remotes:
     shibiaowan/SHARP
 License: GPL-3
